@@ -67,6 +67,71 @@ const changeId = (id) => {
 
 .navigation {
 	grid-area: side;
+	min-height: 80vh;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 50%;
+		margin-left: -1px;
+		background-color: var(--color-1);
+		z-index: 1;
+	}
+	ul {
+		min-height: 100%;
+		display: block;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	li {
+		display: flex;
+		z-index: 2;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 2px solid var(--color-1);
+		background-color: var(--color-2);
+		transition: all 1s;
+		cursor: pointer;
+
+		svg,
+		img {
+			max-height: 30px;
+			max-width: 30px;
+			height: auto;
+		}
+		svg {
+			path {
+				fill: var(--color-1);
+			}
+		}
+		&:first-child {
+			svg,
+			img {
+				max-height: 50px;
+				max-width: 50px;
+				height: auto;
+			}
+		}
+		&:hover,
+		&.active {
+			border: 2px solid var(--color-2);
+			background-color: var(--color-1);
+			svg {
+				path {
+					fill: var(--color-2);
+				}
+			}
+		}
+	}
 }
 .content {
 	grid-area: content;

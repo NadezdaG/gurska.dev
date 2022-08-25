@@ -1,0 +1,19 @@
+@use 'breakpoints.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+:root {
+	--color-1: #ae83c9;
+	--color-2: #fcf7f8;
+	--color-3: #444444;
+
+	--font-family: 'Raleway';
+
+	--font-size: 18px;
+
+	@include breakpoints.device(breakpoints.$medium) {
+		--font-size: 18px;
+	}
+
+	@include breakpoints.device(breakpoints.$large) {
+		--font-size: 18px;
+	}
+}
