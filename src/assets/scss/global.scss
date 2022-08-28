@@ -17,6 +17,38 @@ body {
 	font-size: var(--font-size);
 }
 
+h1,
+h2 {
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 2em;
+	line-height: 1.4;
+}
+
+p,
+h3 {
+	margin-bottom: 1.5em;
+}
+
+h1 {
+	font-size: 1.4em;
+	@include breakpoints.device(breakpoints.$medium) {
+		font-size: 1.8em;
+	}
+}
+
+h2 {
+	font-size: 1.2em;
+	@include breakpoints.device(breakpoints.$medium) {
+		font-size: 1.8em;
+	}
+}
+
+h3 {
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
 b,
 strong {
 	font-weight: 600;
@@ -24,4 +56,13 @@ strong {
 
 a {
 	color: var(--color-1);
+}
+
+.text {
+	&--m {
+		font-size: 1.4em;
+		@include breakpoints.device(breakpoints.$medium) {
+			font-size: 2em;
+		}
+	}
 }
