@@ -1,6 +1,6 @@
 # gurska.dev
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio website done with Vue and SCSS
 
 ## Recommended IDE Setup
 
