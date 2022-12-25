@@ -3,7 +3,10 @@ import Hello from './components/content/Hello.vue';
 import Knowledge from './components/content/Knowledge.vue';
 import Portfolio from './components/content/Portfolio.vue';
 import Email from './components/content/Email.vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+
+const nav = ref(null);
+const hamburger = ref(null);
 
 const currentId = ref(0);
 const content = ref([
@@ -29,6 +32,11 @@ const changeId = (id) => {
 	currentId.value = id;
 };
 
+const showNavigation = () => {
+nav.value.classList.toggle('active');
+hamburger.value.classList.toggle('active')
+}
+
 const scrollTo = (id) => {
     const offsetTop = document.querySelector(".content section:nth-child("+id+")").offsetTop;
     scroll({
@@ -42,8 +50,7 @@ const scrollTo = (id) => {
 <template>
     <header>
 	<nav class="navigation">
-        <img src="./assets/lpe_icon.png" width="50" height="50" alt="Nadezda Gurska Front end developer" />
-		<ul>
+		<ul ref="nav">
 			<li
 				v-for="(item, index) in content"
 				:key="index"
@@ -52,6 +59,8 @@ const scrollTo = (id) => {
 			><button @click="scrollTo(index)">{{item.name}}</button>
 			</li>
 		</ul>
+        <button class="hamburger" ref="hamburger" @click="showNavigation">
+            </button>
 	</nav>
     </header>
 
@@ -85,20 +94,52 @@ nav {
     left:0;
     z-index:3;
     width:100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display:flex;
+    justify-content:flex-end;
+    height:50px;
+    align-items:center;
     ul {
         display:flex;
         justify-content: flex-end;
-    }
-    button {
+        transform: translateX(100%);
+        transition: transform 1s;
+        z-index:1;
+        background-color: var(--color-1);
+        &.active {
+            transform: translateX(-50px);
+        }
+
+
+        button {
         text-transform:uppercase;
-        display:inline-block;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         line-height:1;
-        padding:5px 10px;
+        height:30px;
+        padding:10px 10px;
+        color: var(--color-2);
+        font-size: 0.7em;
+        letter-spacing: 1px;;
     }
+    }
+   
 }
 
+.hamburger {
+    position:absolute;
+    top:0;right:0;
+    display: block;
+    margin:10px;
+    width:30px;
+    height:30px;
+    z-index:2;
+    background-color:var(--color-1);
+    transition: transform 1s;
+    &.active {
+        transform: rotate(45deg);
+    }
+}
 section {
     width:100%;
     @include breakpoints.device(breakpoints.$medium) {

@@ -14,6 +14,7 @@
 		<li>Website monthly maintenance</li>
 		<li>Email coding</li>
 	</ul>
+    
 	<p>
 		<br />... and more. Frankly speaking, I believe that there are no
 		unsolvable problems.
